@@ -12,33 +12,8 @@
                 Console.Clear();
                 Console.WriteLine("-----------Calculator------------");
 
-                Console.Write("Enter the first number: ");
-                double num1;
-
-                bool isNumber1 = double.TryParse(Console.ReadLine(),out num1);
-
-                while (!isNumber1)
-                {
-                    Console.WriteLine("Sorry this is not a valid number try another input...!");
-                    Console.WriteLine();
-                    Console.Write("Enter the first number: ");
-                    isNumber1 = double.TryParse(Console.ReadLine(),out num1);
-                }
-                Console.Write("Enter the second number: ");
-
-                double num2;
-
-                bool isNumber2 = double.TryParse(Console.ReadLine(),out num2);
-
-                while (!isNumber2)
-                {
-                    Console.WriteLine("Sorry this is not a valid number try another input...!");
-                    Console.WriteLine();
-                    Console.Write("Enter the second number: ");
-                    isNumber2 = double.TryParse((Console.ReadLine()),out num2);
-                }
                 Console.WriteLine();
-
+                // Select operator
                 bool isValidOperator = false;
 
                 Console.WriteLine("Select one of those operators---");
@@ -48,7 +23,7 @@
                 Console.WriteLine("Press /   For Division");
 
 
-                char myOperator = Console.ReadKey(false).KeyChar;
+                char myOperator = Console.ReadKey().KeyChar;
                 Console.WriteLine();
                 do
                 {
@@ -81,6 +56,52 @@
                 Console.WriteLine();
 
 
+                Console.Write("Enter the first number: ");
+                double num1;
+
+                bool isNumber1 = double.TryParse(Console.ReadLine(),out num1);
+
+                while (!isNumber1)
+                {
+                    Console.WriteLine("Sorry this is not a valid number try another input...!");
+                    Console.WriteLine();
+                    Console.Write("Enter the first number: ");
+                    isNumber1 = double.TryParse(Console.ReadLine(),out num1);
+                }
+                Console.Write("Enter the second number: ");
+
+                double num2;
+
+                bool isNumber2 = double.TryParse(Console.ReadLine(),out num2);
+
+                while (!isNumber2)
+                {
+                    Console.WriteLine("Sorry this is not a valid number try another input...!");
+                    Console.WriteLine();
+                    Console.Write("Enter the second number: ");
+                    isNumber2 = double.TryParse((Console.ReadLine()),out num2);
+                }
+                Console.WriteLine();
+
+                while (myOperator == '/' && num2 == 0)
+                {
+                    Console.WriteLine("Number 2 is not valid to division...!");
+                    Console.Write("Enter another number 2: ");
+
+                    isNumber2 = double.TryParse(Console.ReadLine(), out num2);
+
+                    while (!isNumber2)
+                    {
+                        Console.WriteLine("Sorry this is not a valid number try another input...!");
+                        Console.WriteLine();
+                        isNumber2 = double.TryParse((Console.ReadLine()), out num2);
+                    }
+
+                }
+
+
+
+                // Calculate result
                 string result = "Result =";
 
                 switch (myOperator)
@@ -99,21 +120,6 @@
                         break;
 
                     case '/':
-                        while(num2 == 0)
-                        {
-                            Console.WriteLine("Number 2 is not valid to division...!");
-                            Console.Write("Enter another number 2: ");
-
-                            isNumber2 = double.TryParse(Console.ReadLine(),out num2);
-
-                            while (!isNumber2)
-                            {
-                                Console.WriteLine("Sorry this is not a valid number try another input...!");
-                                Console.WriteLine();
-                                isNumber2 = double.TryParse((Console.ReadLine()), out num2);
-                            }
-                        }
-
                         Console.WriteLine($"{result} {num1 / num2}");
                         break;
 
@@ -147,7 +153,7 @@
 
                     default:
                         repeateCalculation = false;
-                        Console.WriteLine("Thank you using clucaltor ..... GoodBye.. :)");
+                        Console.WriteLine("Thank you using clucaltor ..... GoodBye :)");
                         break;
                 }
 

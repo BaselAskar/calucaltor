@@ -23,19 +23,20 @@
                 Console.WriteLine("Press /   For Division");
 
 
-                char myOperator = Console.ReadKey().KeyChar;
+                string? myOperator = Console.ReadLine();
                 Console.WriteLine();
                 do
                 {
                     switch (myOperator)
                     {
-                        case '+':
-                        case '-':
-                        case '*':
-                        case '/':
+                        case "+":
+                        case "-":
+                        case "*":
+                        case "/":
                             isValidOperator = true;
                             break;
                         default:
+                            Console.Beep();
                             Console.WriteLine("this is not a valid operator.......!");
                             Console.WriteLine();
 
@@ -45,7 +46,7 @@
                             Console.WriteLine("Press *   For Multiplication");
                             Console.WriteLine("Press /   For Division");
 
-                            myOperator = Console.ReadKey().KeyChar;
+                            myOperator = Console.ReadLine();
                             isValidOperator = false;
                             break;
 
@@ -63,6 +64,7 @@
 
                 while (!isNumber1)
                 {
+                    Console.Beep();
                     Console.WriteLine("Sorry this is not a valid number try another input...!");
                     Console.WriteLine();
                     Console.Write("Enter the first number: ");
@@ -76,6 +78,7 @@
 
                 while (!isNumber2)
                 {
+                    Console.Beep();
                     Console.WriteLine("Sorry this is not a valid number try another input...!");
                     Console.WriteLine();
                     Console.Write("Enter the second number: ");
@@ -83,7 +86,7 @@
                 }
                 Console.WriteLine();
 
-                while (myOperator == '/' && num2 == 0)
+                while (myOperator == "/" && num2 == 0)
                 {
                     Console.WriteLine("Number 2 is not valid to division...!");
                     Console.Write("Enter another number 2: ");
@@ -107,19 +110,19 @@
                 switch (myOperator)
                 {
 
-                    case '+':
+                    case "+":
                         Console.WriteLine($"{result} {num1 + num2}");
                         break;
 
-                    case '-':
+                    case "-":
                         Console.WriteLine($"{result} {num1 - num2}");
                         break;
 
-                    case '*':
+                    case "*":
                         Console.WriteLine($"{result} {num1 * num2}");
                         break;
 
-                    case '/':
+                    case "/":
                         Console.WriteLine($"{result} {num1 / num2}");
                         break;
 
